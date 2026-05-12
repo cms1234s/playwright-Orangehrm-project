@@ -21,6 +21,7 @@ export default defineConfig([
     },
     rules: {
       "prettier/prettier": "error",
+      "linebreak-style": ["error", "unix"],
       "no-console": "error",
       "no-alert": "error",
       "no-inline-comments": "error",
