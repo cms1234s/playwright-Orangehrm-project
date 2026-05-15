@@ -1,0 +1,23 @@
+set -e
+
+# Get staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+# Run prettier on staged files
+if [ -n "$STAGED_FILES" ]; then
+  npx prettier $STAGED_FILES --write --ignore-unknown
+fi
+
+# Run eslint on staged JS/TS files (fail on any warning or error)
+JS_TS_FILES=$(echo "$STAGED_FILES" | grep -E '\.(js|mjs|cjs|ts|tsx)$' | tr '\n' ' ')
+if [ -n "$JS_TS_FILES" ]; then
+  npx eslint $JS_TS_FILES --max-warnings=0
+fi
+
+# Run playwright test on staged test files
+TEST_FILES=$(echo "$STAGED_FILES" | grep -E '\.(spec|test)\.(js|ts)$' | tr '\n' ' ')
+if [ -n "$TEST_FILES" ]; then
+  npx playwright test $TEST_FILES
+fi
+
+git update-index --again
