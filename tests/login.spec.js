@@ -1,5 +1,9 @@
 import { test, expect } from "@playwright/test";
+
+// Verify login page displayed
+
 test("Validating OrangeHRM login form functionality", async ({ page }) => {
+  test.setTimeout(60000);
   await page.goto(
     "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
   );

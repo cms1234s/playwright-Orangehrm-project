@@ -15,7 +15,7 @@ export default defineConfig([
       prettier: prettierPlugin,
     },
     languageOptions: {
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       ecmaVersion: "latest",
       sourceType: "module",
     },
