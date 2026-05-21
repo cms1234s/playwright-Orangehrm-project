@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { userNames } from "../utils/userNames";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "../pages/LoginPage";
 
 test("user management module for user", async ({ page }) => {
   const { username, password } = userNames.user1;
