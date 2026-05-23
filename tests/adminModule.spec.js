@@ -52,4 +52,8 @@ test("user management module for user", async ({ page }) => {
   // await page.pause();
   // Save
   await page.locator('//button[normalize-space()="Save"]').click();
+  // Success Message
+  await expect(page.getByText("Successfully Saved")).toBeVisible({
+    timeout: 15000,
+  });
 });
