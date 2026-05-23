@@ -1,0 +1,61 @@
+name: Playwright Tests
+
+run-name: CI running Playwright Tests 🚀
+
+on:
+  push:
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  playwright-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.15.0
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Prettier and ESLint on Changed Files
+        run: |
+          # Get changed files compared to main branch
+          CHANGED_FILES=$(git diff --name-only origin/main...HEAD)
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          # Run prettier on changed files
+          if [ -n "$CHANGED_FILES" ]; then
+            npx prettier $CHANGED_FILES --write --ignore-unknown
+          fi
+
+          # Filter JS/TS files
+          JS_TS_FILES=$(echo "$CHANGED_FILES" | grep -E '\.(js|mjs|cjs|ts|tsx)$' | tr '\n' ' ')
+
+          # Run eslint on JS/TS files
+          if [ -n "$JS_TS_FILES" ]; then
+            npx eslint $JS_TS_FILES --max-warnings=0
+          fi
+
+      - name: Run Playwright Tests
+        run: npx playwright test
+        env:
+          USER1: ${{ secrets.USER1 }}
+          USER2: ${{ secrets.USER2 }}
+          USER3: ${{ secrets.USER3 }}
+          USER4: ${{ secrets.USER4 }}
+          USER5: ${{ secrets.USER5 }}
