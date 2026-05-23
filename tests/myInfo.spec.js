@@ -4,7 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import MyInfoPage from "../pages/MyInfoPage";
 
 test("my info  module section ", async ({ page }) => {
-  const { username, password } = userNames.user1;
+  const { username, password } = userNames.USER1;
   const loginPage = new LoginPage(page);
   await loginPage.goto();
   await loginPage.login(username, password);
