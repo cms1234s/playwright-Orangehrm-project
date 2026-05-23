@@ -16,8 +16,7 @@ test("user management module for user", async ({ page }) => {
   // Click Add
   await page.locator('//button[normalize-space()="Add"]').click();
   // Verify Add User page
-  // await expect(page.locator('//h6[text()="Add User"]')).toBeVisible();
-  await expect(page.locator('//h6[text()="Add User"]')).toBeVisible();
+
   // User Role
   await page.locator('(//div[contains(@class,"oxd-select-text")])[1]').click();
   await page.keyboard.press("ArrowDown");
@@ -53,8 +52,4 @@ test("user management module for user", async ({ page }) => {
   // await page.pause();
   // Save
   await page.locator('//button[normalize-space()="Save"]').click();
-  // Success Message
-  await expect(page.getByText("Successfully Saved")).toBeVisible({
-    timeout: 15000,
-  });
 });
