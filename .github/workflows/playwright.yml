@@ -2,12 +2,8 @@ name: Playwright Tests
 
 run-name: CI running Playwright Tests 🚀
 
-on:
-  [ push ]
+on: push
 
-  pull_request:
-    branches:
-      - main
 
 jobs:
   playwright-tests:
