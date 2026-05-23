@@ -26,3 +26,9 @@ jobs:
 
       - name: Run Playwright Tests
         run: npx playwright test
+        env:
+          USER1: ${{ secrets.USER1 }}
+          USER2: ${{ secrets.USER2 }}
+          USER3: ${{ secrets.USER3 }}
+          USER4: ${{ secrets.USER4 }}
+          USER5: ${{ secrets.USER5 }}
