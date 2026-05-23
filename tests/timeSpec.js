@@ -1,15 +1,15 @@
 import { test } from "@playwright/test";
-import timePage from "../pages/timePage";
+import TimePage from "../pages/TimePage";
 import { userNames } from "../utils/userNames";
 
 test("verify time module", async ({ page }) => {
   const { username, password } = userNames.USER1;
-  const timepage = new timePage(page);
+  const timepage = new TimePage(page);
   timepage.addTimeSheet();
-  await timePage.goto();
+  await timepage.goto();
 
-  await timePage.login(username, password);
-  await timePage.waitForDashboard();
+  await timepage.login(username, password);
+  await timepage.waitForDashboard();
 
-  await timePage.timePage.click();
+  await timepage.timePage.click();
 });
