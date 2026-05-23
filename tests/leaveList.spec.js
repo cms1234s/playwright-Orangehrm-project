@@ -4,7 +4,7 @@ import LeavePage from "../pages/LeavePage";
 
 // import LoginPage from "../pages/LoginPage";
 test("verify apply leave flow", async ({ page }) => {
-  const { username, password } = userNames.user1;
+  const { username, password } = userNames.USER1;
   const leavePage = new LeavePage(page);
 
   await leavePage.goto();

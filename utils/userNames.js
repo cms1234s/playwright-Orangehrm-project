@@ -1,22 +1,22 @@
 export const userNames = {
-  user1: {
+  USER1: {
     username: "Admin",
-    password: process.env.user1,
+    password: process.env.USER1,
   },
-  user2: {
+  USER2: {
     username: "Admin",
-    password: process.env.user2,
+    password: process.env.USER2,
   },
-  user3: {
+  USER3: {
     username: "Admin",
-    password: process.env.user3,
+    password: process.env.USER3,
   },
-  user4: {
+  USER4: {
     username: "Admin",
-    password: process.env.user4,
+    password: process.env.USER4,
   },
-  user5: {
+  USER5: {
     username: "Admin",
-    password: process.env.user5,
+    password: process.env.USER5,
   },
 };

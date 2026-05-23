@@ -3,7 +3,7 @@ import timePage from "../pages/timePage";
 import { userNames } from "../utils/userNames";
 
 test("verify time module", async ({ page }) => {
-  const { username, password } = userNames.user1;
+  const { username, password } = userNames.USER1;
   const timepage = new timePage(page);
   timepage.addTimeSheet();
   await timePage.goto();

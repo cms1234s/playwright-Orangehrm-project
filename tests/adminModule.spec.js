@@ -3,7 +3,7 @@ import { userNames } from "../utils/userNames";
 import LoginPage from "../pages/LoginPage";
 
 test("user management module for user", async ({ page }) => {
-  const { username, password } = userNames.user1;
+  const { username, password } = userNames.USER1;
   const loginPage = new LoginPage(page);
   await loginPage.goto();
 
