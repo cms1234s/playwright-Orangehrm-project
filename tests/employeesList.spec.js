@@ -45,7 +45,8 @@ test("verify employee list ", async ({ page }) => {
       '//label[text()="Employment Status"]/following::div[contains(@class,"oxd-select-text")][1]',
     )
     .click();
-  await page.locator('//span[contains(text(),"Full-Time Permanent")]').click();
+  // await page.locator('//span[contains(text(),"Full-Time Permanent")]').click();
+  await page.getByText("Full-Time Permanent").click();
   //   await expect(page.getByText("Full-time Permanent")).toBeVisible();
   //   await page.keyboard.press("ArrowDown");
   //   await page.keyboard.press("Enter");
