@@ -46,6 +46,7 @@ test("verify employee list ", async ({ page }) => {
     )
     .click();
   // await page.locator('//span[contains(text(),"Full-Time Permanent")]').click();
+
   await page.getByText("Full-Time Permanent").click();
   //   await expect(page.getByText("Full-time Permanent")).toBeVisible();
   //   await page.keyboard.press("ArrowDown");
